@@ -1,0 +1,37 @@
+1) 
+
+10.64.206.217
+root/ChangeMe
+
+cd /workspace/jenkins/workspace/BourneCompute
+
+
+ovftool \
+--powerOffTarget \
+--overwrite \
+--powerOn \
+--acceptAllEulas \
+--powerOn \
+--diskMode=thin \
+--datastore='ESX Shared 1' \
+--name=rt-bourne-cluster-node2 \
+--vmFolder=Infrastructure/Testing \
+--prop:network.eth0.ipaddr=10.64.213.52 \
+--prop:network.eth0.netmask=255.255.255.240 \
+--prop:network.eth1.ipaddr=0.0.0.0 \
+--prop:network.eth1.netmask=255.255.255.240 \
+--prop:network.gateway=10.64.213.49 \
+--prop:network.nameservers='10.73.240.235,152.62.196.10' \
+--prop:system.timezone=Europe/London \
+--net:'Public Network'='Lab Network' \
+--net:'System Management and Storage Device Network'='Lab Network' \
+--net:'Private Network'='Lab Network' \
+--X:logFile=ovftool.log \
+--X:logLevel=verbose \
+`ls -1 build/OVFS/*standalone.ovf` \
+vi://istech:H0meBase@hb-vmware.lss.emc.com/HomeBase%20Lab/host/Test-Cluster/hb-esx7.lss.emc.com
+
+
+2)
+
+hb-vmware : 10.64.206.21  (istech/H0meBase)
